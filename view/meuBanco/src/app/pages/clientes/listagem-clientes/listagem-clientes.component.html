@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-6">
+        <i class="fas fa-address-book"></i> Listagem de Clientes
+      </h1>
+      <hr />
+      <div class="row">
+        <div class="col">
+          <a class="btn btn-dark" routerLink="cadastrar">Novo</a>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Ativo</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <th>{{ cliente.id }}</th>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.email }}</td>
+            <td>
+              <i
+                *ngIf="cliente.ativo"
+                class="fas fa-thumbs-up text-success"
+              ></i>
+              <i
+                *ngIf="!cliente.ativo"
+                class="fas fa-thumbs-down text-danger"
+              ></i>
+            </td>
+            <td>
+              <a
+                [routerLink]="['editar', cliente.id]"
+                class="btn btn-success btn-sm"
+                >Editar</a
+              >
+              <a
+                (click)="confirmar(cliente.id)"
+                class="btn btn-danger btn-sm mx-1"
+                >Remover</a
+              >
+              <a
+                [routerLink]="['/contas/contasClientes', cliente.cpf]"
+                class="btn btn-primary btn-sm"
+                >Contas</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

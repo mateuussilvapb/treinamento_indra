@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-6" *ngIf="formValue.get('id')?.value">
+        <i class="fas fa-money-bill-alt"></i> Depósito
+      </h1>
+      <hr *ngIf="formValue.get('id')?.value" />
+      <form [formGroup]="formValue" (ngSubmit)="depositar()">
+        <div *ngIf="!formValue.get('id')?.value" class="mb-3">
+          <label class="form-label">Agência</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="agencia"
+            maxlength="4"
+          />
+        </div>
+        <div *ngIf="!formValue.get('id')?.value" class="mb-3">
+          <label class="form-label">Conta</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="numeroConta"
+            maxlength="6"
+          />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Valor</label>
+          <input type="text" class="form-control" formControlName="valor" />
+        </div>
+        <a href="javascript:history.back()" class="btn btn-dark">Voltar</a>
+        <button
+          [disabled]="!formValue.valid"
+          type="submit"
+          class="btn btn-success mx-1"
+        >
+          Depositar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

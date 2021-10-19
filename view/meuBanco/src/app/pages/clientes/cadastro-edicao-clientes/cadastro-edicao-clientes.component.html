@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-6">
+        <i class="fas fa-user-plus"></i
+        >{{ formValue.get("id")?.value ? " Edição" : " Cadastro" }} de Cliente
+      </h1>
+      <hr />
+
+      <form [formGroup]="formValue" (ngSubmit)="enviar()">
+        <div class="mb-3">
+          <label for="nomeCliente">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="nome"
+            placeholder="Maria do Desterro"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="emailCliente">E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            formControlName="email"
+            placeholder="nome@exemplo.com"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="cpfCliente">CPF</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="cpf"
+            placeholder="12345678900"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="observacoes" class="form-label">Observações</label>
+          <textarea
+            class="form-control"
+            cols="30"
+            rows="3"
+            formControlName="observacoes"
+            placeholder="Observações sobre seu perfil"
+          ></textarea>
+        </div>
+
+        <div *ngIf="formValue.get('id')?.value" class="mb-3 form-check">
+          <label class="form-check-label" for="exampleCheck1">Ativo</label>
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="exampleCheck1"
+            formControlName="ativo"
+          />
+        </div>
+
+        <a href="javascript:history.back()" class="btn btn-dark mx-1">Voltar</a>
+        <a
+          *ngIf="formValue.get('id')?.value"
+          class="btn btn-primary mx-1"
+          [routerLink]="['/contas/cliente/', formValue.get('cpf')?.value]"
+        >
+          Nova Conta
+        </a>
+        <button
+          [disabled]="!formValue.valid"
+          type="submit"
+          class="btn btn-success mx-1"
+        >
+          Enviar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
