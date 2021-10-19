@@ -62,6 +62,6 @@ Usuário: treinamentoindra
 
 Senha: treinamentoindra
 
-<img src="/1.png"/>
-<img src="/2.png"/>
-<img src="/3.png"/>
+![Alt text](https://github.com/mateuussilvapb/treinamento_indra/blob/main/1.PNG "")
+![Alt text](https://github.com/mateuussilvapb/treinamento_indra/blob/main/2.PNG "")
+![Alt text](https://github.com/mateuussilvapb/treinamento_indra/blob/main/3.PNG "")
